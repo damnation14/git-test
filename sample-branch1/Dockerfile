@@ -48,7 +48,6 @@ ENTRYPOINT ["/node-prune.sh"]
 # Stage 3
 FROM node:12-alpine
 WORKDIR /app
-# Copy everything in app from stage 1 and node_modules from stage 2 to stage 3
 COPY --from=builder /app/. ./
 COPY --from=dependency /app/node_modules ./node_modules
 EXPOSE 4112
